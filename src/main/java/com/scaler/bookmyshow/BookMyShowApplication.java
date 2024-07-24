@@ -17,7 +17,7 @@ import java.util.Map;
 @SpringBootApplication
 public class BookMyShowApplication implements CommandLineRunner {
 
-    //    @Autowired
+    // @Autowired
     private UserController userController;
     private CityController cityController;
     private TheatreController theatreController;
@@ -46,8 +46,9 @@ public class BookMyShowApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         CreateUserRequestDto requestDto = new CreateUserRequestDto();
-        requestDto.setEmail("jayesh@scaler.com");
+        requestDto.setEmail("rachitsrivastava77@gmail.com");
 
+        // Hardcoded
         this.userController.createUser(requestDto);
         this.cityController.addCity("Chandigarh");
         this.theatreController.createTheatre(
