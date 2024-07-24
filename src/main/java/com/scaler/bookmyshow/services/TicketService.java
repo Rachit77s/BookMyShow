@@ -35,6 +35,7 @@ public class TicketService {
         logger.info("TicketService initialized with repositories");
     }
 
+    // Main logic for booking
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public Ticket bookTicket(
             Long showId,
@@ -43,18 +44,20 @@ public class TicketService {
     ) throws ShowSeatNotAvailableException {
         logger.info("Attempting to book ticket for showId: {}, userId: {}, showSeatIds: {}", showId, userId, showSeatIds);
 
-        // Fetch the given showSeats
+        // Fetch the list of ShowSeat by given showSeatsId
         List<ShowSeat> showSeats = showSeatRepository.findByIdIn(showSeatIds);
 
-        // Check for availability
+        // Check for availability of the seat
         for (ShowSeat showSeat : showSeats) {
             if (!showSeat.getState().equals(ShowSeatState.AVAILABLE)) {
+                // Seat is not available, raise an exception
                 logger.error("Show seat is not available: {}", showSeat.getId());
                 throw new ShowSeatNotAvailableException("Show seat is not available: " + showSeat.getId());
             }
         }
 
-        // Update the status to lock
+        // If we are here, this means seats are available hence
+        // Update the seat status to lock
         for (ShowSeat showSeat : showSeats) {
             showSeat.setState(ShowSeatState.LOCKED);
             showSeatRepository.save(showSeat);
