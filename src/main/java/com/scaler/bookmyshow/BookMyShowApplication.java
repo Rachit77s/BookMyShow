@@ -49,6 +49,14 @@ public class BookMyShowApplication implements CommandLineRunner {
         requestDto.setEmail("rachitsrivastava77@gmail.com");
 
         // Hardcoded
+
+        // Make a booking
+            // 0. Create a city
+            // 1. Create a theatre
+            // 2. Create an auditorium in the theatre with seats
+            // 3. Create a Movie
+            // 4. Create a Show
+
         this.userController.createUser(requestDto);
         this.cityController.addCity("Chandigarh");
         this.theatreController.createTheatre(
