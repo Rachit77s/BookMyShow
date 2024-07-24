@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Show extends BaseModel {
 //    1 : 1
-//    m  :  1
+//    m  :  1   One movie can have multiple shows
     @ManyToOne
     private Movie movie;
     private Date startTime;

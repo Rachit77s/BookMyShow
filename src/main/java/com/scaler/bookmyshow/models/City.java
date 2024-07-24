@@ -13,6 +13,8 @@ import java.util.List;
 @Entity
 public class City extends BaseModel {
     private String name;
+
+    // 1 City has multiple theatres
     @OneToMany(fetch = FetchType.EAGER)
     private List<Theatre> theatres;
 }

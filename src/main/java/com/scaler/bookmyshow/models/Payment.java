@@ -17,7 +17,7 @@ public class Payment extends BaseModel {
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
     //  1 : 1
-    //  M :  1
+    //  M :  1    One ticket can have multiple payment options
     @ManyToOne
     private Ticket ticket;
 
