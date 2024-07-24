@@ -11,9 +11,9 @@
     <groupId>com.scaler</groupId>
     <artifactId>BMS</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>BMS_ajit</name>
+    <name>BMS</name>
     <description>project for BMS type of application</description>
-    <properties>
+    <properties>A
         <java.version>17</java.version>
     </properties>
     <dependencies>
